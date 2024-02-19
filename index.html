@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="image" href="./assets/images/icon-star.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link type="stylesheet" href="index.css">
+  <title>Frontend Mentor | FAQ accordion</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      margin: 3%;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    body {
+      background-color: white;
+      border-radius: 10%;
+      display: flex;
+      flex-direction: column;
+      max-width: 45%;
+      margin-left: 22%;
+      margin-top: 10%;
+      padding: 3%;
+      font-family: sans-serif;
+      
+    }
+
+    html {
+      background-color: hsl(275,100%,97%);
+    }
+    html{
+      background-image: url(assets/images/background-pattern-desktop.svg);
+      background-size: cover;
+      position: relative;
+      background-repeat: no-repeat;
+      max-height: 40%;
+    }
+
+    /* Style the buttons that are used to open and close the accordion panel */
+    .accordion {
+      background-color: white;
+      
+      cursor: pointer;
+      padding: 2%;
+      width: 100%;
+      text-align: left;
+      border: none;
+      outline: none;
+      transition: 0.4s;
+    }
+    .accordion::after{
+      content: url(assets/images/icon-plus.svg);
+      float: right;
+    }
+    .active::after{
+      content: url(assets/images/icon-minus.svg)
+    }
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+
+    /* Style the accordion panel. Note: hidden by default */
+    .panel {
+      padding: 0 18px;
+      background-color: white;
+      display: none;
+      overflow: hidden;
+    }
+
+    p {
+      font-size: 16px;
+      color: hsl(292,16%,49%);
+     
+    }
+
+    header {
+      padding: 2%;
+      font-weight: 700;
+      font-size: xx-large;
+      color: hsl(292, 40%, 18%);
+    }
+
+    button {
+      font-weight: 600;
+      font-size: medium;
+      color: hsl(292, 40%, 18%);
+    }
+  </style>
+</head>
+
+<body>
+  
+  <header>FAQs <img src="./assets/images/icon-star.svg" alt="1"> </header>
+  <button class="accordion"> What is Frontend Mentor, and how will it help me?</button>
+
+  <div class="panel">
+    <p> Frontend Mentor offers realistic coding challenges to help developers improve their
+      frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for
+      all levels and ideal for portfolio building.</p>
+  </div>
+
+  <button class="accordion">Is Frontend Mentor free?</button>
+
+  <div class="panel">
+    <p>Yes, Frontend Mentor offers both free and premium coding challenges, with the free
+      option providing access to a range of projects suitable for all skill levels.
+    </p>
+  </div>
+
+  <button class="accordion">Can I use Frontend Mentor projects in my portfolio?</button>
+
+  <div class="panel">
+    <p>Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+      way to showcase your skills to potential employers!
+    </p>
+  </div>
+
+  <button class="accordion">How can I get help if I'm stuck on a Frontend Mentor challenge?</button>
+
+  <div class="panel">
+    <p>The best place to get help is inside Frontend Mentor's Discord community. There's a help
+      channel where you can ask questions and seek support from other community members.
+    </p>
+  </div>
+
+  <script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+  </script>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Kyle O'Neill</a>.
+  </div>
+</body>
+
+</html>
